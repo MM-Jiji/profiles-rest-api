@@ -38,7 +38,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=True)
 
-    #objects = UserProfileManager()
+    objects = UserProfileManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
@@ -49,7 +49,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
     def get_short_name(self):
         """Retrieve short name of user"""
-        return slef.NAME
+        return self.name
 
     def __str__(self):
         """Return string representation of our user"""
